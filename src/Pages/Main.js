@@ -1,17 +1,17 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet,Image } from 'react-native';
 import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 import reducer from '../Services/reducer'
 import Counter from '../Components/Counter'
 
-
+const store = createStore(reducer)
 // create a component
 class Main extends Component {
     render() {
 
-         store = createStore(reducer)
+         
         return (
             <Provider style={styles.container} store={store} >
                 <Counter/>
@@ -24,7 +24,7 @@ class Main extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
+        justifyContent:'space-between',
         alignItems: 'center',
         backgroundColor: '#2c3e50',
     },

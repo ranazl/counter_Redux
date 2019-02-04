@@ -5,9 +5,14 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
-  TextInput
+  TextInput,
 } from "react-native";
 import { connect } from "react-redux";
+// import types from '../Components/type'
+import {setIncr , setDecr , setMult , setDiv} from '../Services/Actions'
+
+
+
 
 class Counter extends Component {
   // constructor(props){
@@ -18,57 +23,67 @@ class Counter extends Component {
   // }
 
   increament = () => {
-    this.props.dispatch({
-      type: "INCREMENT"
-    });
+    //   console.warn('increase')
+    this.props.dispatch(setIncr());
   };
 
   decrement = () => {
-    this.props.dispatch({
-      type: "DECREMENT"
-    });
+    // console.warn('increase')
+
+    this.props.dispatch(setDecr());
   };
-  // multy = () => {
-  //     this.props.dispatch({
-  //         type:'MULTIPLY'
-  //     })
-  // };
-  // divide = () => {
-  //     this.props.dispatch({
-  //         type:'DIVIDE'
-  //     })
-  // };
+  multy = () => {
+    // console.warn('increase')
+
+      this.props.dispatch(setMult())
+  };
+  divide = () => {
+    // console.warn('increase')
+
+      this.props.dispatch(setDiv())
+  };
 
   render() {
     return (
-      // <div>
-      //     <h2>
-      //         Couter
-      //     </h2>
-      //     <div>
-      //         <button onClick={this.increament}>+</button>
-      //         <span>{this.props.count}</span>
-      //         <button onClick={this.decrement}>-</button>
-      //     </div>
-      // </div>
+
       <View style={styles.className}>
-        <TouchableOpacity onPress={this.divide}>
+        <View style={{flexDirection: "row", alignItems: "center", }}>
+        <TouchableOpacity onPress={this.divide.bind(this)} >
           <Text style={styles.textInput}>/</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={this.increament}>
+        <TouchableOpacity onPress={this.increament.bind(this)} style={{marginHorizontal:20,}}>
           <Text style={styles.textInput}>+</Text>
         </TouchableOpacity>
         {/* <Text style={styles.textInput}>{this.state.lastCount}</Text> */}
         <Text style={styles.textInput}>{this.props.count}</Text>
-        <TouchableOpacity onPress={this.decrement}>
+        <TouchableOpacity onPress={this.decrement.bind(this)} style={{marginHorizontal:20,}}>
           <Text style={styles.textInput}>-</Text>
         </TouchableOpacity>
-        {/* <TouchableOpacity onPress={this.multy}>
+        <TouchableOpacity onPress={this.multy.bind(this)} >
                     <Text style={styles.textInput}>*</Text>
-                </TouchableOpacity> */}
-        <View>
-          {/* <TextInput placeholder={"Number"} onChangeText={this.getNumber} /> */}
+                </TouchableOpacity>
+        <View style={{marginLeft:20}}>
+          <Text>{this.props.pm}</Text>
         </View>
+        </View>
+        {this.props.ax === 'one' &&
+        <Image
+            source={require('../../picture/plus.png')}
+        />}
+        {this.props.ax === 'two' &&
+        <Image
+            source={require('../../picture/minus.png')}
+        />}
+        {this.props.ax === 'three' &&
+        <Image
+            source={require('../../picture/multiply.png')}
+        />}
+        {this.props.ax === 'four' &&
+        <Image
+            source={require('../../picture/divide.png')}
+        />}
+        
+        
       </View>
     );
   }
@@ -76,25 +91,22 @@ class Counter extends Component {
 const styles = StyleSheet.create({
   className: {
     flex: 1,
-    justifyContent: "space-evenly",
-    alignItems: "center",
-    flexDirection: "row"
+     alignItems: "center",
+     justifyContent:'center'
   },
   textInput: {
     fontSize: 30,
     color: "#000",
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
-  viewStyle: {
-    borderWidth: 1,
-    width: 300,
-    marginTop: 40
-  }
+
 });
 
 const mapStateToProps = state => {
   return {
-    count: state.count
+    count: state.count,
+    pm:state.pm,
+    ax:state.ax,
   };
 };
 

@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View,Image} from 'react-native';
 import Main from './src/Pages/Main'
 
 export default class App extends Component {
@@ -16,7 +16,7 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent:'space-between',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
