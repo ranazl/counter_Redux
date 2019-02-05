@@ -11,7 +11,6 @@ import {DIVIDE}   from './type'
 const initialState = {
     count:0,
     color:'violet',
-
     pm:'',
     ax:'',
 };

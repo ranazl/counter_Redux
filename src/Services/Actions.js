@@ -9,6 +9,7 @@ export const setIncr = () => {
         type: INCREMENT,
         payload:{
             color:'red'
+            
         }
 
     }
