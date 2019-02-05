@@ -6,24 +6,37 @@ import {DIVIDE} from './type'
 
 export const setIncr = () => {
     return{
-        type: INCREMENT
+        type: INCREMENT,
+        payload:{
+            color:'red'
+        }
+
     }
 }
 
 export const setDecr = () => {
     return{
-        type: DECREMENT
+        type: DECREMENT,
+        payload:{
+            color:'green'
+        }
     }
 }
 
 export const setMult  =() => {
     return{
-        type: MULTIPLY
+        type: MULTIPLY,
+        payload:{
+            color:'blue'
+        }
     }
 }
 
 export const  setDiv =() => {
     return{
-        type: DIVIDE
+        type: DIVIDE,
+        payload:{
+            color:'yellow'
+        }
     }
 }

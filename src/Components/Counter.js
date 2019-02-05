@@ -43,6 +43,8 @@ class Counter extends Component {
       this.props.dispatch(setDiv())
   };
 
+
+
   render() {
     return (
 
@@ -55,7 +57,7 @@ class Counter extends Component {
           <Text style={styles.textInput}>+</Text>
         </TouchableOpacity>
         {/* <Text style={styles.textInput}>{this.state.lastCount}</Text> */}
-        <Text style={styles.textInput}>{this.props.count}</Text>
+        <Text style={[styles.textInput,{color:this.props.color}]}>{this.props.count}</Text>
         <TouchableOpacity onPress={this.decrement.bind(this)} style={{marginHorizontal:20,}}>
           <Text style={styles.textInput}>-</Text>
         </TouchableOpacity>
@@ -66,6 +68,7 @@ class Counter extends Component {
           <Text>{this.props.pm}</Text>
         </View>
         </View>
+        <View style={{marginTop:50}}>
         {this.props.ax === 'one' &&
         <Image
             source={require('../../picture/plus.png')}
@@ -82,7 +85,7 @@ class Counter extends Component {
         <Image
             source={require('../../picture/divide.png')}
         />}
-        
+        </View>
         
       </View>
     );
@@ -105,6 +108,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => {
   return {
     count: state.count,
+    color:state.color,
     pm:state.pm,
     ax:state.ax,
   };

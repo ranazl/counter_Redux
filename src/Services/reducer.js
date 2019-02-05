@@ -10,6 +10,8 @@ import {DIVIDE}   from './type'
 
 const initialState = {
     count:0,
+    color:'violet',
+
     pm:'',
     ax:'',
 };
@@ -21,24 +23,31 @@ function reducer(state = initialState , action) {
         // console.warn('incraserrrrr')
             return{
                 count:state.count + 1,
+                color:action.payload.color,
                 pm:'plus',
                 ax:'one'
             };
         case DECREMENT:
             return{
                 count:state.count - 1,
+                color:action.payload.color,
+
                 pm:'minus',
                 ax: 'two'
             };
         case MULTIPLY:
             return{
                 count:state.count * 5,
+                color:action.payload.color,
+
                 pm:'multiply',
                 ax: 'three'
             };
         case DIVIDE:
             return{
                 count:state.count / 2,
+                color:action.payload.color,
+
                 pm:'divide',
                 ax: 'four'
             };
